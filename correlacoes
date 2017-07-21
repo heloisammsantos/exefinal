@@ -1,0 +1,21 @@
+### Correlações das infos###
+
+log.dt_final <- log(dt_final [,4:14])
+log.dt_final
+
+plot(log.dt_final)
+
+summary(dt_final)
+
+cluster.dt_final<- kmeans(dt_final[,18:19], 10,nstart = 3)
+cluster.dt_final
+
+Cluster.docente <- kmeans(dt_final[,11:12],10, nstart = 3)
+Cluster.docente
+
+table(dt_final$`Nota - Classificação CPC da IES`,dt_final$`Total de Docentes Doutores`)
+
+library(ggplot2)
+
+ggplot(dt_final, aes(x = dt_final$`Nota - Classificação CPC da IES`, y = dt_final$`Total de Docentes Ativos`))+ geom_point()
+
